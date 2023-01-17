@@ -131,11 +131,13 @@
     <ClCompile Include="ChatServer.cpp" />
     <ClCompile Include="DateTime.cpp" />
     <ClCompile Include="SQLiteChatDB.cpp" />
+    <ClCompile Include="TCPServer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DateTime.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="SQLiteChatDB.h" />
+    <ClInclude Include="TCPServer.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="ChatServer.rc" />
