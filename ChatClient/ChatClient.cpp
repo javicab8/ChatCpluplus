@@ -91,13 +91,13 @@ int main()
     HANDLE receiveThread = CreateThread(nullptr, 0, clientReceive, &TCPClientSocket, 0, &tid);
 
     if (receiveThread == nullptr)
-        std::cout << "Thread creation error: " << GetLastError();
+        std::cout << "Error en la creación del hilo: " << GetLastError();
 
     // Crea hilo para enviar
     HANDLE sendThread = CreateThread(nullptr, 0, clientSend, &TCPClientSocket, 0, &tid);
 
     if (sendThread == nullptr)
-        std::cout << "Thread creation error: "<< GetLastError();
+        std::cout << "Error en la creación del hilo: "<< GetLastError();
 
     WaitForSingleObject(receiveThread, INFINITE);
     WaitForSingleObject(sendThread, INFINITE);
