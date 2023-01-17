@@ -7,7 +7,6 @@ std::string DateTime::getCurrentDateTimeString()
 	struct tm tm;
 	localtime_s(&tm, &t);
 	char str[26];
-	//ctime_s(str, sizeof str, &t);
 	strftime(str, sizeof str, "%D %T", &tm);
 	return str;
 }

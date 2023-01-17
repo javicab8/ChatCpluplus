@@ -5,11 +5,15 @@
 #include <map>
 
 #include "DateTime.h"
+#include "SQLiteChatDB.h"
 
 #pragma comment (lib, "ws2_32.lib")
 
 int main()
 {
+	SQLiteChatDB database;
+	database.open("chat.db");
+	
 	// Inicializa winsock
 	WSADATA wsData;
 	WORD ver = MAKEWORD(2, 2);
@@ -129,6 +133,8 @@ int main()
 					std::ostringstream ss;
 					std::string nowString = DateTime::getCurrentDateTimeString();
 					ss << nowString << " " << clients[sock] << ": " << buf << "\r\n";
+
+					database.insertRecord(nowString, clients[sock], buf);
 
 					std::string strOut = ss.str();
 					std::cout << strOut;
